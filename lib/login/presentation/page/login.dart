@@ -34,27 +34,27 @@ class LoginScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(
-                    'Login',
+                    'Pizzeria Random',
                     style: TextStyle(
                       fontSize: 32,
-                      color: Colors.white,
+                      color: Colors.orange,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 24),
-                  _buildInputField(emailController, 'Email'),
+                  _buildInputField(emailController, 'Correo'),
                   const SizedBox(height: 16),
-                  _buildInputField(passwordController, 'Password', isPassword: true),
+                  _buildInputField(passwordController, 'Contraseña', isPassword: true),
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.orange,
                       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                     ),
-                    child: const Text('Sign In', style: TextStyle(fontSize: 18, color: Colors.orange)),
+                    child: const Text('Iniciar sesión', style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),
@@ -69,12 +69,13 @@ class LoginScreen extends StatelessWidget {
     return TextField(
       controller: controller,
       obscureText: isPassword,
-      style: const TextStyle(color: Colors.orange),
+      style: const TextStyle(color: Colors.black, fontSize: 18),
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(color: Colors.white,fontSize: 16),
+        hintStyle: const TextStyle(color: Colors.black,fontSize: 18,),
         filled: true,
-        fillColor: Colors.white.withValues(alpha: 0.2),
+        // fillColor: Colors.white54.withValues(alpha: 0.8),
+        fillColor:  Colors.white70,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none),
       ),
