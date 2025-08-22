@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:restaurant_pos/login/presentation/widgets/custom_input_field.dart';
 // import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -42,10 +43,13 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  _buildInputField(emailController, 'Correo'),
+                  // Campo de correo
+                  CustomInputField(controller:emailController, hint:'Correo'),
                   const SizedBox(height: 16),
-                  _buildInputField(passwordController, 'Contraseña', isPassword: true),
+                  // Campo Contraseña
+                  CustomInputField(controller: passwordController, hint: 'Contraseña', isPassword: true,),
                   const SizedBox(height: 24),
+                  // Boton
                   ElevatedButton(
                     onPressed: () {
                     },
@@ -61,23 +65,6 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildInputField(TextEditingController controller, String hint, {bool isPassword = false}) {
-    return TextField(
-      controller: controller,
-      obscureText: isPassword,
-      style: const TextStyle(color: Colors.black, fontSize: 18),
-      decoration: InputDecoration(
-        hintText: hint,
-        hintStyle: const TextStyle(color: Colors.black,fontSize: 18,),
-        filled: true,
-        // fillColor: Colors.white54.withValues(alpha: 0.8),
-        fillColor:  Colors.white70,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none),
       ),
     );
   }
