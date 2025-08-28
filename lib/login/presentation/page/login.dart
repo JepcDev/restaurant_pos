@@ -1,8 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-// import 'package:restaurant_pos/login/presentation/widgets/custom_input_field.dart';
+
 import '../widgets/custom_input_field.dart';
-// import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
