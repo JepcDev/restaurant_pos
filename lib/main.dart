@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:restaurant_pos/login/presentation/page/login.dart';
+// import 'package:restaurant_pos/login/presentation/page/login.dart';
+import './login/presentation/page/login.dart';
 
 void main() {
   runApp(const MyApp());
