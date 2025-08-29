@@ -13,21 +13,16 @@ class LoginScreen extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Fondo: Imagen difuminada
           Image.network(
             'https://media.gettyimages.com/id/184946701/es/foto/pizza.jpg?s=612x612&w=gi&k=20&c=0aZWqxu6Cok0KXJNTgGyU3stoNmgF8KNy76O1IhfiLQ=',
             fit: BoxFit.cover,
           ),
-
-          // Capa de blur (difuminado)
           BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5), // Difuminado
+            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
             child: Container(
-              color: Colors.black.withValues(alpha: 0.3), // Oscurece un poco
+              color: Colors.black.withValues(alpha: 0.3),
             ),
           ),
-
-          // Contenido (formulario)
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -43,13 +38,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  // Campo de correo
                   CustomInputField(controller:emailController, hint:'Correo'),
                   const SizedBox(height: 16),
-                  // Campo Contraseña
                   CustomInputField(controller: passwordController, hint: 'Contraseña', isPassword: true,),
                   const SizedBox(height: 24),
-                  // Boton
                   ElevatedButton(
                     onPressed: () {
                     },
