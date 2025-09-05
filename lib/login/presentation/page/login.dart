@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-// import 'home_screen.dart';
+
+import '../widgets/custom_input_field.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -12,21 +13,16 @@ class LoginScreen extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Fondo: Imagen difuminada
           Image.network(
             'https://media.gettyimages.com/id/184946701/es/foto/pizza.jpg?s=612x612&w=gi&k=20&c=0aZWqxu6Cok0KXJNTgGyU3stoNmgF8KNy76O1IhfiLQ=',
             fit: BoxFit.cover,
           ),
-
-          // Capa de blur (difuminado)
           BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5), // Difuminado
+            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
             child: Container(
-              color: Colors.black.withValues(alpha: 0.3), // Oscurece un poco
+              color: Colors.black.withValues(alpha: 0.3),
             ),
           ),
-
-          // Contenido (formulario)
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -34,49 +30,33 @@ class LoginScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(
-                    'Login',
+                    'Pizzeria Random',
                     style: TextStyle(
                       fontSize: 32,
-                      color: Colors.white,
+                      color: Colors.orange,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 24),
-                  _buildInputField(emailController, 'Email'),
+                  CustomInputField(controller:emailController, hint:'Correo'),
                   const SizedBox(height: 16),
-                  _buildInputField(passwordController, 'Password', isPassword: true),
+                  CustomInputField(controller: passwordController, hint: 'Contraseña', isPassword: true,),
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.orange,
                       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                     ),
-                    child: const Text('Sign In', style: TextStyle(fontSize: 18, color: Colors.orange)),
+                    child: const Text('Iniciar sesión', style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildInputField(TextEditingController controller, String hint, {bool isPassword = false}) {
-    return TextField(
-      controller: controller,
-      obscureText: isPassword,
-      style: const TextStyle(color: Colors.orange),
-      decoration: InputDecoration(
-        hintText: hint,
-        hintStyle: const TextStyle(color: Colors.white,fontSize: 16),
-        filled: true,
-        fillColor: Colors.white.withValues(alpha: 0.2),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none),
       ),
     );
   }
